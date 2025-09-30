@@ -1,0 +1,87 @@
+{
+  "$schema": "http://json-schema.org/draft/2020-12/schema",
+  "title": "CAPA Knowledge Object v1.0",
+  "type": "object",
+  "required": ["capa_id", "problem_statement", "root_cause", "corrective_action", "approvals", "metadata"],
+
+  "properties": {
+    "capa_id": {
+      "type": "string",
+      "description": "Unique identifier for this CAPA"
+    },
+
+    "problem_statement": {
+      "type": "string",
+      "description": "Description of the deviation, defect, or nonconformance"
+    },
+
+    "root_cause": {
+      "type": "string",
+      "description": "Root cause analysis result"
+    },
+
+    "corrective_action": {
+      "type": "string",
+      "description": "Corrective action(s) defined to address root cause"
+    },
+
+    "preventive_action": {
+      "type": "string",
+      "description": "Optional preventive action(s) to avoid recurrence"
+    },
+
+    "due_dates": {
+      "type": "object",
+      "properties": {
+        "root_cause_due": { "type": "string", "format": "date" },
+        "corrective_due": { "type": "string", "format": "date" },
+        "effectiveness_check_due": { "type": "string", "format": "date" }
+      }
+    },
+
+    "approvals": {
+      "type": "array",
+      "description": "Sign-offs and approvals with Part 11 compliance",
+      "items": {
+        "type": "object",
+        "required": ["actor", "method", "timestamp", "signature_hash"],
+        "properties": {
+          "actor": { "type": "string", "description": "Approver name or role" },
+          "method": {
+            "type": "string",
+            "enum": ["e_signature", "click_to_approve", "system_auto"],
+            "description": "Approval method"
+          },
+          "timestamp": { "type": "string", "format": "date-time" },
+          "signature_hash": { "type": "string", "description": "Cryptographic proof of signature" }
+        }
+      }
+    },
+
+    "audit_trail": {
+      "type": "array",
+      "description": "Immutable history of record changes",
+      "items": {
+        "type": "object",
+        "required": ["action", "actor", "timestamp"],
+        "properties": {
+          "action": { "type": "string", "description": "Created, modified, approved, closed" },
+          "actor": { "type": "string", "description": "User or system taking action" },
+          "timestamp": { "type": "string", "format": "date-time" },
+          "details": { "type": "string" }
+        }
+      }
+    },
+
+    "metadata": {
+      "type": "object",
+      "properties": {
+        "created_at": { "type": "string", "format": "date-time" },
+        "created_by": { "type": "string" },
+        "tags": { "type": "array", "items": { "type": "string" } }
+      }
+    }
+  },
+
+  "additionalProperties": false
+}
