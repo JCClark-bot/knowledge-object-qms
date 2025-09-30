@@ -1,2 +1,9 @@
-# knowledge-object-qms
-AI-driven Quality Management System (QMS) using knowledge objects. Immutable, auditable, Part 11–compliant records that act as both knowledge and action agents, enabling decentralized quality and ERP integration.
+# AI-Driven Knowledge Object QMS
+This repository contains the original white paper and schema draft authored by [Your Name], published [Date].
+
+Contents:
+- WHITEPAPER.md — AI-Driven Knowledge Object QMS White Paper
+- CAPA_SCHEMA.json — Example CAPA Knowledge Object Schema
+
+Purpose:
+Establish prior art for the concept of an AI-native, knowledge-object-driven QMS with immutable, Part 11–compliant records and action-agent tracking.
