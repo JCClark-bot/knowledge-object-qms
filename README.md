@@ -22,6 +22,9 @@ The system also includes an **Action Agent layer** that tracks obligations, remi
 - Offers **ERP integration** to replace or enhance weak ERP quality modules.  
 - Provides **audit-ready compliance** at lower cost, especially for SMBs in cosmetics, dietary supplements, and food manufacturing.
 
+## Schemas
+- [CAPA Schema](schemas/CAPA_SCHEMA.json)
+
 ## 📜 License
 [MIT License](LICENSE) (or your choice)
 
